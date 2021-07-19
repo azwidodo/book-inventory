@@ -1,4 +1,5 @@
-from find_book import *
+from find_book_Edge import *
+# from find_book_Chrome import *
 import json
 
 
@@ -33,5 +34,3 @@ def add_book(ISBN):
 
 
     print(data["books"])
-
-add_book(ISBN)
