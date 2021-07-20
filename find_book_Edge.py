@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def find_book(ISBN):
     book_title, book_series, book_author = find_on_abebooks(ISBN)
-    
+
     if book_title == None:
         book_title2, book_series2, book_author2 = find_on_goodreads(ISBN)
 
@@ -25,17 +25,13 @@ def find_book(ISBN):
 def find_on_goodreads(ISBN):
     # Launch Microsoft Edge (Chromium)
     PATH = "/Users/azw/Pictures/Programming/book-inventory/edgedriver_mac64/msedgedriver"
-    DESIRED_CAP = { "os" : "OS X",
-                    "os_version" : "Big Sur",
-                    "browser" : "Edge",
-                    "browser_version" : "90.0",
-                    "browserstack.local" : "false",
-                    "browserstack.selenium_version" : "3.141"
-                    }
 
-    # options = EdgeOptions()
-    # options.use_chromium = True
-    driver = webdriver.Edge(executable_path=PATH, capabilities=DESIRED_CAP)
+    options = EdgeOptions()
+    options.use_chromium = True
+    options.add_argument("headless")
+    options.set_capability("platform", "MAC")
+
+    driver = Edge(executable_path=PATH, options=options)
 
     driver.get("https://www.goodreads.com/")
 
@@ -62,16 +58,15 @@ def find_on_goodreads(ISBN):
 
         if book_series == "":
             book_series = None
-        
+
         return book_title, book_series, book_author
-        
+
     except:
         book_title = None
         book_series = None
         book_author = None
 
         return book_title, book_series, book_author
-
 
     # time.sleep(5)
     driver.quit()
@@ -94,10 +89,25 @@ def find_on_abebooks(ISBN):
         book_series = None
 
         return book_title, book_series, book_author
-    
+
     except:
         book_title = None
         book_series = None
         book_author = None
 
         return book_title, book_series, book_author
+
+
+# THIS THREAD SAVED ME
+# https://travis-ci.community/t/runtime-for-releases-of-edge-and-msedgedriver-with-python/11552
+
+
+# DESIRED_CAP = {"os": "OS X",
+#                "os_version": "Big Sur",
+#                "browser": "Edge",
+#                "browser_version": "90.0",
+#                "browserstack.local": "false",
+#                "browserstack.selenium_version": "3.141.0"
+#                }
+# driver = webdriver.Edge(executable_path=PATH,
+#                         capabilities=DESIRED_CAP, options=options)

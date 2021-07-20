@@ -3,8 +3,12 @@ from find_book_Edge import *
 import json
 
 
-ISBN = "9780517884539"
+# ISBN = "9780517884539"
 # ISBN = "9789794030462"
+ISBN = "9780349142630"
+
+print(find_book(ISBN))
+
 
 def add_book(ISBN):
 
@@ -23,14 +27,13 @@ def add_book(ISBN):
             new_book = {
                 "ISBN": ISBN,
                 "title": title,
-                 "series": series,
-                 "authors": authors
+                "series": series,
+                "authors": authors
             }
 
             data["books"].append(new_book)
 
             f.seek(0)
             json.dump(data, f, indent=4)
-
 
     print(data["books"])
