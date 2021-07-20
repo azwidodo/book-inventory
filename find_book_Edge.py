@@ -15,7 +15,7 @@ def find_book(ISBN):
         book_title2, book_series2, book_author2 = find_on_goodreads(ISBN)
 
         if book_title2 == None:
-            return "Not found"
+            return None
         else:
             return book_title2, book_series2, book_author2
 

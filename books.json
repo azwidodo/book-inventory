@@ -24,6 +24,77 @@
             "authors": [
                 "Tim Harford"
             ]
+        },
+        {
+            "ISBN": "9780141033570",
+            "title": "Thinking, Fast and Slow",
+            "series": null,
+            "authors": [
+                "KAHNEMAN DANIEL"
+            ]
+        },
+        {
+            "ISBN": "9781912697328",
+            "title": "The Book of Jakarta: A City in Short Fiction (Paperback)",
+            "series": null,
+            "authors": [
+                "utiuts",
+                " Dewi Kharisma Michellia",
+                " Yusi Avianto Pareanom",
+                ""
+            ]
+        },
+        {
+            "ISBN": "9780008309008",
+            "title": "Noise (Paperback)",
+            "series": null,
+            "authors": [
+                "Daniel Kahneman"
+            ]
+        },
+        {
+            "ISBN": "9781447220718",
+            "title": "The ship of adventure",
+            "series": null,
+            "authors": [
+                "Enid Blyton"
+            ]
+        },
+        {
+            "ISBN": "9780061956270",
+            "title": "Freakonomics",
+            "series": null,
+            "authors": [
+                "Levitt",
+                " Steven D.",
+                " Dubner",
+                " Stephen J"
+            ]
+        },
+        {
+            "ISBN": "9780552174992",
+            "title": "God: A Human History",
+            "series": null,
+            "authors": [
+                "Reza Aslan"
+            ]
+        },
+        {
+            "ISBN": "9780804171588",
+            "title": "Crazy Rich Asians",
+            "series": null,
+            "authors": [
+                "Kevin Kwan"
+            ]
+        },
+        {
+            "ISBN": "9780307744661",
+            "title": "Norwegian Wood (Vintage International)",
+            "series": null,
+            "authors": [
+                "Murakami",
+                " Haruki"
+            ]
         }
     ]
 }
