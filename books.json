@@ -95,6 +95,187 @@
                 "Murakami",
                 " Haruki"
             ]
+        },
+        {
+            "ISBN": "9781409350156",
+            "title": "The Science Book: Big Ideas Simply Explained",
+            "series": null,
+            "authors": [
+                "DK"
+            ]
+        },
+        {
+            "ISBN": "9780753404355",
+            "title": "The Kingfisher Science Encyclopedia",
+            "series": null,
+            "authors": [
+                "Kingfisher Books",
+                " Charles Taylor"
+            ]
+        },
+        {
+            "ISBN": "9780071151443",
+            "title": "Principles of Corporate Finance (The Mcgraw-Hill/Irwin Series in Finance, Insurance, and Real Estate)",
+            "series": null,
+            "authors": [
+                "Stewart C. Myers"
+            ]
+        },
+        {
+            "ISBN": "9781412971676",
+            "title": "Applied Thematic Analysis",
+            "series": null,
+            "authors": [
+                "Gregory (Greg) S. Guest",
+                " Kathleen M. MacQueen",
+                " Emily E. Namey"
+            ]
+        },
+        {
+            "ISBN": "9780199588053",
+            "title": "Social Research Methods, 4th Edition",
+            "series": null,
+            "authors": [
+                "Bryman",
+                " Alan"
+            ]
+        },
+        {
+            "ISBN": "9780670033027",
+            "title": "England's Thousand Best Country Houses",
+            "series": null,
+            "authors": [
+                "Simon Jenkins"
+            ]
+        },
+        {
+            "ISBN": "9781782744849",
+            "title": "Bushido: The Soul of Japan (Chinese Bound)",
+            "series": null,
+            "authors": [
+                "Inazo Nitobe"
+            ]
+        },
+        {
+            "ISBN": "9780195428025",
+            "title": "Studying Public Policy: Policy Cycles and Policy Subsystems",
+            "series": null,
+            "authors": [
+                "Perl",
+                " Anthony",
+                " Ramesh",
+                " M.",
+                " Howlett",
+                " Michael"
+            ]
+        },
+        {
+            "ISBN": "9789792263251",
+            "title": "Ranah 3 Warna (Indonesian Edition)",
+            "series": null,
+            "authors": [
+                "A. Fuadi"
+            ]
+        },
+        {
+            "ISBN": "9789792298406",
+            "title": "Sang Alkemis (Indonesian Edition)",
+            "series": null,
+            "authors": [
+                "Coelho",
+                " Paulo"
+            ]
+        },
+        {
+            "ISBN": "9789798926327",
+            "title": "Flavors of Indonesia: William Wongsos Culinary Wonders",
+            "series": null,
+            "authors": [
+                "Wongso",
+                " William W."
+            ]
+        },
+        {
+            "ISBN": "9781438004709",
+            "title": "Scissors, Paper, Craft : 30 Pretty Projects All Cut, Folded, and Crafted from Paper",
+            "series": null,
+            "authors": [
+                "Leech",
+                " Christine"
+            ]
+        },
+        {
+            "ISBN": "9780756692681",
+            "title": "Help Your Kids with Science",
+            "series": null,
+            "authors": [
+                "DK Publishing"
+            ]
+        },
+        {
+            "ISBN": "9781534496392",
+            "title": "Chain of Iron (Volume 2)",
+            "series": null,
+            "authors": [
+                "Clare Cassandra"
+            ]
+        },
+        {
+            "ISBN": "9781534452053",
+            "title": "Chain of Gold (Export): A Shadowhunters Novel: 1 (Last Hours)",
+            "series": null,
+            "authors": [
+                "Simon and Schuster"
+            ]
+        },
+        {
+            "ISBN": "9780199233410",
+            "title": "A Dictionary of Zoology (Oxford Quick Reference)",
+            "series": null,
+            "authors": [
+                "Michael Allaby"
+            ]
+        },
+        {
+            "ISBN": "9789792704051",
+            "title": "Quantum Ikhlas",
+            "series": null,
+            "authors": [
+                "Erbe Sentanu"
+            ]
+        },
+        {
+            "ISBN": "9789792439328",
+            "title": "Burung Kolibri Merah Dadu",
+            "series": null,
+            "authors": [
+                "Kurnia Effendi"
+            ]
+        },
+        {
+            "ISBN": "9789791238670",
+            "title": "Satu Tiket Ke Surga",
+            "series": null,
+            "authors": [
+                "Zabrina A. Bakar"
+            ]
+        },
+        {
+            "ISBN": "9780807046579",
+            "title": "The Only Woman in the Room: Why Science Is Still a Boys' Club",
+            "series": null,
+            "authors": [
+                "Eileen Pollack"
+            ]
+        },
+        {
+            "ISBN": "9781471178252",
+            "title": "The Irrational Ape: Why Flawed Logic Puts us all at Risk and How Critical Thinking Can Save the World",
+            "series": null,
+            "authors": [
+                "Grimes",
+                " David Robert"
+            ]
         }
     ]
 }

@@ -33,8 +33,8 @@ def show_book():
 
     isbn = str(isbn_entry.get())
 
-    if find_book(isbn):
-        title, series, authors = find_book(isbn)
+    if find_on_abebooks(isbn)[0] != None:
+        title, series, authors = find_on_abebooks(isbn)
 
         Label(frame2, text="ISBN: ").grid(row=0, column=0, padx=10)
         Label(frame2, text="Title: ").grid(row=1, column=0, padx=10)
@@ -60,8 +60,8 @@ def add_book():
     isbn = str(isbn_entry.get())
     show_book()
 
-    if find_book(isbn):
-        title, series, authors = find_book(isbn)
+    if find_on_abebooks(isbn)[0] != None:
+        title, series, authors = find_on_abebooks(isbn)
 
         with open('books.json', 'r+') as f:
             data = json.load(f)
@@ -100,10 +100,13 @@ def show_database():
     Label(frame3, text="No. ISBN, Title, Series, Authors").grid(
         row=0, column=0, columnspan=10, padx=10, pady=(10, 0), sticky="w")
 
+    n = len(data["books"])
+
     for i, book in enumerate(data["books"]):
 
-        Label(frame3, text=f"{i+1}. {book['ISBN']}, {book['title']}, {book['series']}, {book['authors']}").grid(
-            row=1 + i, column=0, columnspan=10, padx=10, sticky="w")
+        if i >= n - 20:
+            Label(frame3, text=f"{i+1}. {book['ISBN']}, {book['title']}, {book['series']}, {book['authors']}").grid(
+                row=1 + i, column=0, columnspan=10, padx=10, sticky="w")
 
 
 find_button = Button(frame1, text="Find Book", command=show_book).grid(

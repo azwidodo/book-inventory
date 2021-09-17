@@ -88,14 +88,14 @@ def find_on_abebooks(ISBN):
         book_author = author.split(",")
         book_series = None
 
-        return book_title, book_series, book_author
+        return (book_title, book_series, book_author)
 
     except:
         book_title = None
         book_series = None
         book_author = None
 
-        return book_title, book_series, book_author
+        return (book_title, book_series, book_author)
 
 
 # THIS THREAD SAVED ME
@@ -111,3 +111,10 @@ def find_on_abebooks(ISBN):
 #                }
 # driver = webdriver.Edge(executable_path=PATH,
 #                         capabilities=DESIRED_CAP, options=options)
+
+if find_on_abebooks("9781471178252")[0] == None:
+    print("NONE")
+else:
+    print("EXISTS")
+
+print(find_on_abebooks("9781471178252")[0])
