@@ -1,11 +1,10 @@
-from find_book_Edge import *
-# from find_book_Chrome import *
-import json
+from find_book import *
+import pandas as pd
 
 
-# ISBN = "9780517884539"
+ISBN = "97805178845391"
 # ISBN = "9789794030462"
-ISBN = "9780349142630"
+# ISBN = "9780349142630"
 
 print(find_book(ISBN))
 
@@ -14,26 +13,14 @@ def add_book(ISBN):
 
     title, series, authors = find_book(ISBN)
 
-    with open('books.json', 'r+') as f:
-        data = json.load(f)
+    df = pd.read_csv("books.csv")
 
-        isbns = set()
+    isbns = df["ISBN"].unique()
 
-        for book in data["books"]:
-            if book["ISBN"] not in isbns:
-                isbns.add(book["ISBN"])
-
+    if title != "None":
         if ISBN not in isbns:
-            new_book = {
-                "ISBN": ISBN,
-                "title": title,
-                "series": series,
-                "authors": authors
-            }
 
-            data["books"].append(new_book)
-
-            f.seek(0)
-            json.dump(data, f, indent=4)
-
-    print(data["books"])
+            if not series:
+                row = [title, "", authors]
+            else:
+                row = [title, series, authors]
