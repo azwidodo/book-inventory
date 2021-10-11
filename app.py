@@ -1,12 +1,12 @@
 from tkinter import *
-from find_book_Edge import *
-# from find_book_Chrome import *
-import json
+from find_book import *
+from add_book import *
+import pandas as pd
 
 
 root = Tk()
 root.title("Book Inventory")
-root.geometry("600x600")
+root.geometry("600x750")
 
 # entry and buttons
 frame1 = Frame(root)
@@ -27,14 +27,14 @@ isbn_label = Label(frame1, text="Enter Book ISBN: ").grid(
     row=0, column=0, columnspan=2, padx=10, pady=(10, 0))
 
 
-def show_book():
+def find_book_tk():
     for widget in frame2.winfo_children():
         widget.destroy()
 
     isbn = str(isbn_entry.get())
+    title, series, authors = find_book(isbn)
 
-    if find_on_abebooks(isbn)[0] != None:
-        title, series, authors = find_on_abebooks(isbn)
+    if title != "None":
 
         Label(frame2, text="ISBN: ").grid(row=0, column=0, padx=10)
         Label(frame2, text="Title: ").grid(row=1, column=0, padx=10)
@@ -55,64 +55,74 @@ def show_book():
             row=0, column=0, padx=10)
 
 
-def add_book():
+def add_book_tk():
+    for widget in frame2.winfo_children():
+        widget.destroy()
 
     isbn = str(isbn_entry.get())
-    show_book()
+    title, series, authors, added = add_book(isbn)
 
-    if find_on_abebooks(isbn)[0] != None:
-        title, series, authors = find_on_abebooks(isbn)
+    if added == 0:
+        Label(frame2, text="ISBN: ").grid(row=0, column=0, padx=10)
+        Label(frame2, text="Title: ").grid(row=1, column=0, padx=10)
+        Label(frame2, text="Series: ").grid(row=2, column=0, padx=10)
+        Label(frame2, text="Authors: ").grid(row=3, column=0, padx=10)
 
-        with open('books.json', 'r+') as f:
-            data = json.load(f)
+        Label(frame2, text=f"{isbn}").grid(
+            row=0, column=1, columnspan=6, sticky="w")
+        Label(frame2, text=f"{title}").grid(
+            row=1, column=1, columnspan=6, sticky="w")
+        Label(frame2, text=f"{series}").grid(
+            row=2, column=1, columnspan=6, sticky="w")
+        Label(frame2, text=f"{authors}").grid(
+            row=3, column=1, columnspan=6, sticky="w")
 
-            isbns = set()
+        Label(frame2, text="Book added to database!", fg="#0f0").grid(
+            row=4, column=0, columnspan=4)
 
-            for book in data["books"]:
-                if book["ISBN"] not in isbns:
-                    isbns.add(book["ISBN"])
+    elif added == 1:
+        Label(frame2, text="ISBN: ").grid(row=0, column=0, padx=10)
+        Label(frame2, text="Title: ").grid(row=1, column=0, padx=10)
+        Label(frame2, text="Series: ").grid(row=2, column=0, padx=10)
+        Label(frame2, text="Authors: ").grid(row=3, column=0, padx=10)
 
-            if isbn not in isbns:
-                new_book = {
-                    "ISBN": isbn,
-                    "title": title,
-                    "series": series,
-                    "authors": authors
-                }
+        Label(frame2, text=f"{isbn}").grid(
+            row=0, column=1, columnspan=6, sticky="w")
+        Label(frame2, text=f"{title}").grid(
+            row=1, column=1, columnspan=6, sticky="w")
+        Label(frame2, text=f"{series}").grid(
+            row=2, column=1, columnspan=6, sticky="w")
+        Label(frame2, text=f"{authors}").grid(
+            row=3, column=1, columnspan=6, sticky="w")
 
-                data["books"].append(new_book)
+        Label(frame2, text="Book already exists in database!", fg="#f00").grid(
+            row=4, column=0, columnspan=4)
 
-                f.seek(0)
-                json.dump(data, f, indent=4)
-
-                Label(frame2, text="Book added to database!", fg="#0f0").grid(
-                    row=4, column=0, columnspan=4)
-
-            else:
-                Label(frame2, text="Book already exists in database!", fg="#f00").grid(
-                    row=4, column=0, columnspan=4)
+    else:
+        Label(frame2, text="Book not found.", fg="#f00").grid(
+            row=4, column=0, columnspan=4)
 
 
 def show_database():
-    with open('books.json', 'r+') as f:
-        data = json.load(f)
+    df = pd.read_csv("books.csv")
 
-    Label(frame3, text="No. ISBN, Title, Series, Authors").grid(
-        row=0, column=0, columnspan=10, padx=10, pady=(10, 0), sticky="w")
+    # pd.set_option('display.width', 1000)
+    # pd.set_option('display.max_columns', 2)
+    # print(df.iloc[:, 0:2].tail(10))
 
-    n = len(data["books"])
+    data = df.iloc[:, 0:2].tail(10).to_string()
+    data_array = data.splitlines()
 
-    for i, book in enumerate(data["books"]):
+    for i in range(11):
+        str = " ".join(data_array[i].split())
+        Label(frame3, text=str).grid(row=i, column=0,
+                                     columnspan=10, padx=10, pady=10, sticky="w")
 
-        if i >= n - 20:
-            Label(frame3, text=f"{i+1}. {book['ISBN']}, {book['title']}, {book['series']}, {book['authors']}").grid(
-                row=1 + i, column=0, columnspan=10, padx=10, sticky="w")
 
-
-find_button = Button(frame1, text="Find Book", command=show_book).grid(
+find_button = Button(frame1, text="Find Book", command=find_book_tk).grid(
     row=1, column=0, columnspan=2, pady=10, ipadx=10)
 
-add_button = Button(frame1, text="Add Book to Database", command=add_book).grid(
+add_button = Button(frame1, text="Add Book to Database", command=add_book_tk).grid(
     row=1, column=2, columnspan=2, pady=5)
 
 show_db_btn = Button(frame1, text="Show Book Database", command=show_database).grid(
